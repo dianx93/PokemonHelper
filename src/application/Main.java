@@ -8,14 +8,16 @@ import java.util.Map.Entry;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	private int[][] counters = new int[13][17];
-	private enum Type {
+	public enum Type {
 		FAIRY(1), STEEL(2), NORMAL(3), DRAGON(4),
 		GHOST(5), ROCK(6), BUG(7),
 		PSYCHC(8), FLYING(9), GROUND(10),POISON(11),
@@ -38,13 +40,21 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			FXMLLoader loader = new FXMLLoader();
+			Parent root = loader.load(getClass().getResource("MainLayout.fxml").openStream());
+			MainController controller = (MainController)loader.getController(); 
+			Scene scene = new Scene(root,600,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			final ObservableList<Type> types = FXCollections.observableArrayList();
 			types.addAll(weakTo.keySet());
-			CheckListView<Type> clview = new CheckListView<>(weakTo.keySet());
+			controller.setTypeValues(types);
+			
+			final ObservableList<Integer> cps = FXCollections.observableArrayList();
+			for(int i = 300; i < 1600; i += 100){
+				cps.add(i);
+			}
+			controller.setCPValues(cps);
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();

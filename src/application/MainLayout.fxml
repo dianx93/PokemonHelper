@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.49382716049382713" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" pickOnBounds="false" prefHeight="265.0" prefWidth="598.0">
+         <children>
+            <ChoiceBox fx:id="CPchoice" layoutX="14.0" layoutY="45.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="Quickchoice" layoutX="14.0" layoutY="107.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="Mainchoice" layoutX="14.0" layoutY="172.0" prefWidth="150.0" />
+            <Label layoutX="14.0" layoutY="24.0" text="CP larger than:" />
+            <Label layoutX="18.0" layoutY="86.0" text="Quick move:" />
+            <Label layoutX="18.0" layoutY="151.0" text="Main move:" />
+            <Button fx:id="addButton" layoutX="116.0" layoutY="224.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="removeButton" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" text="Remove" />
+            <TextArea fx:id="messageBoard" layoutX="181.0" layoutY="14.0" prefHeight="251.0" prefWidth="403.0" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TableView fx:id="table" layoutX="14.0" layoutY="14.0" prefHeight="268.0" prefWidth="572.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
